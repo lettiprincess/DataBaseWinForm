@@ -52,6 +52,10 @@
             this.button3 = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.login = new System.Windows.Forms.Button();
+            this.felhasznalokListBox = new System.Windows.Forms.ListBox();
+            this.statLB = new System.Windows.Forms.ListBox();
+            this.DataGridView = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // nevTB
@@ -264,11 +268,42 @@
             this.login.UseVisualStyleBackColor = true;
             this.login.Click += new System.EventHandler(this.login_Click);
             // 
+            // felhasznalokListBox
+            // 
+            this.felhasznalokListBox.FormattingEnabled = true;
+            this.felhasznalokListBox.ItemHeight = 16;
+            this.felhasznalokListBox.Location = new System.Drawing.Point(12, 423);
+            this.felhasznalokListBox.Name = "felhasznalokListBox";
+            this.felhasznalokListBox.Size = new System.Drawing.Size(339, 100);
+            this.felhasznalokListBox.TabIndex = 24;
+            // 
+            // statLB
+            // 
+            this.statLB.FormattingEnabled = true;
+            this.statLB.ItemHeight = 16;
+            this.statLB.Location = new System.Drawing.Point(375, 423);
+            this.statLB.Name = "statLB";
+            this.statLB.Size = new System.Drawing.Size(364, 100);
+            this.statLB.TabIndex = 25;
+            // 
+            // DataGridView
+            // 
+            this.DataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridView.Location = new System.Drawing.Point(769, 64);
+            this.DataGridView.Name = "DataGridView";
+            this.DataGridView.RowTemplate.Height = 24;
+            this.DataGridView.Size = new System.Drawing.Size(351, 158);
+            this.DataGridView.TabIndex = 26;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(755, 404);
+            this.ClientSize = new System.Drawing.Size(1132, 535);
+            this.Controls.Add(this.DataGridView);
+            this.Controls.Add(this.statLB);
+            this.Controls.Add(this.felhasznalokListBox);
             this.Controls.Add(this.login);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.button3);
@@ -296,6 +331,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -327,6 +363,9 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button login;
+        private System.Windows.Forms.ListBox felhasznalokListBox;
+        private System.Windows.Forms.ListBox statLB;
+        private System.Windows.Forms.DataGridView DataGridView;
     }
 }
 

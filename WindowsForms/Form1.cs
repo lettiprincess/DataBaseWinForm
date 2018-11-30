@@ -37,6 +37,37 @@ namespace WindowsForms
             nevDel.Enabled = false;
             jelszoDel.Enabled = false;
             button2.Enabled = false;
+
+            var listazas = conn.CreateCommand();
+            listazas.CommandText = "SELECT COUNT(*) FROM felhasznalo";
+            long darabSzam = (long)listazas.ExecuteScalar();
+
+            var felhasznalok = conn.CreateCommand();
+            listazas.CommandText = "SELECT nev,regdatum FROM felhasznalo ORDER BY nev";
+            using (var reader = listazas.ExecuteReader()) {
+                felhasznalokListBox.Items.Clear();
+                while (reader.Read()) {
+                    var nev = reader.GetString("nev");
+                    var datum = reader.GetDateTime("regdatum");
+                    felhasznalokListBox.Items.Add(string.Format("{0:yyyy.MM.dd.} - {1}",datum,nev));
+                }
+            }
+            var stat = conn.CreateCommand();
+            stat.CommandText = "SELECT regdatum, COUNT(*) FROM felhasznalo GROUP BY regdatum";
+            using (var reader = stat.ExecuteReader()) {
+                statLB.Items.Clear();
+                while (reader.Read()) {
+                    DateTime datum = reader.GetDateTime("regdatum");
+                    long db = reader.GetInt64("COUNT(*)");
+                    statLB.Items.Add(string.Format("{0:yyyy.MM.dd.} - {1}",datum,db));
+                }
+            }
+
+            var adapter = new MySqlDataAdapter("SELECT nev,regdatum FROM felhasznalo ORDER BY nev", conn);
+            var builder = new MySqlCommandBuilder(adapter);
+            var table = new DataTable();
+            adapter.Fill(table);
+            DataGridView.DataSource = table;
         }
 
         private void button1_Click(object sender, EventArgs e)
